@@ -1,61 +1,42 @@
 
-import Main from './main'
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Main from './courses'
+import {Routes, Route} from 'react-router-dom'
 import Welcome from './welcome';
 import React from 'react';
+import data from "./data/data.json"
 
 
-class App extends React.Component {
-  
 
-  constructor(props) {
-    super(props);
-    this.state = {data: null};
-  }
+function App() {
 
-  componentDidMount() {
-    fetch('/courses/data.json').then(response => {
-        response.json().then(data => {
-          console.log(data)
-            this.setState({data: data});
-        })
-    })            
-  }
-
-  render(){
     return (
-    
       <div className="App" >
 
-        <Router>
           <Routes>
+            
             <Route
-                path={"/courses/"} 
+                path={"/"} 
                 exact 
                 element={<Welcome />}
             />
-            {console.log(this.state.data)}
-            {
-              this.state.data !=null &&
-              Object
-                .keys(this.state.data)
-                .map(route => (
 
-                    <Route 
-                      key={route}
-                      path={"/courses/"+route} 
-                      exact 
-                      element={<Main data = {this.state.data[route]} />}
-                    />
-                  
-                ))
-            }
-             </Routes>
-        </Router>
+            <Route
+                path={"/core-java"} 
+                exact 
+                element={<Main data = {data['core-java']} />}
+            />
+
+            <Route
+                path={"/frontend-intro"} 
+                exact 
+                element={<Main data = {data['frontend-intro']} />}
+            />
+
+          </Routes>
 
       </div>
     )
-  };
+
 }
 
 export default App;

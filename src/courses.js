@@ -9,10 +9,19 @@ export default function Main(props){
         <div className={props.data.bg}>
             
             <header>
-                <h1 className={props.data.bg + "-theme"}>{props.data.heading}</h1>
-                <button className={"btn-small transparent " + props.data.bg + "-theme"}  onClick={() => window.location.href = '/courses/' + props.data.file}>
-                    Download Course Pdf
+                <h1 
+                    className={props.data.bg + "-theme"}
+                    >
+                        {props.data.heading}
+                </h1>
+                
+                <button 
+                    className={"btn-small transparent " + props.data.bg + "-theme"}  
+                    onClick={() => window.location.href = '/courses/' + props.data.file}
+                >
+                    Show Course Pdf
                 </button>
+                
             </header>
             <div  className="content">
 
