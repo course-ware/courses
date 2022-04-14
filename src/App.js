@@ -14,7 +14,7 @@ function App() {
       <Router>
         <Routes>
         <Route 
-            path={"/"} 
+            path={"/courses/"} 
             exact 
             element={<Welcome />}
         />
@@ -26,7 +26,7 @@ function App() {
 
               <Route 
                 key={route}
-                path={"/"+route} 
+                path={"/courses/"+route} 
                 exact 
                 element={<Main data = {DATA[route]} />}
               />

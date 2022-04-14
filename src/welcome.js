@@ -79,7 +79,7 @@ export default function Welcome(){
                 </div>
                 <button 
                     className="btn-small"
-                    onClick = {() => window.location.href="/core-java"}
+                    onClick = {() => window.location.href="/courses/core-java"}
                     style={{background: "#3E1929", alignSelf:"flex-start", margin: "0"}}>
                         Take me to the course!
                 </button>
@@ -100,7 +100,7 @@ export default function Welcome(){
                 </p>
                 <button 
                     className="btn-small"
-                    onClick = {() => window.location.href="/frontend-intro"}
+                    onClick = {() => window.location.href="/courses/frontend-intro"}
                     style={{background: "#3E1929", alignSelf:"flex-start", margin: "0"}}
                 >
                     Take me to the course!
