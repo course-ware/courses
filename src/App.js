@@ -1,11 +1,23 @@
 
+import React, { useState, useEffect }  from 'react';
 import Main from './main'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import DATA from './data/data.json'
 import Welcome from './welcome';
 
 
 function App() {
+
+  const[state, setState] = useState({data: {}});
+  
+  useEffect(()=>{
+    fetch('data.json').then(response => {
+        response.json().then(data => {
+            setState({data: data});
+        })
+    })
+})
+
+
   return (
     
     
@@ -21,14 +33,14 @@ function App() {
       {
         
         Object
-          .keys(DATA)
+          .keys(state.data)
           .map(route => (
 
               <Route 
                 key={route}
                 path={"/courses/"+route} 
                 exact 
-                element={<Main data = {DATA[route]} />}
+                element={<Main data = {state.data[route]} />}
               />
             
           ))
