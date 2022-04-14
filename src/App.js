@@ -1,55 +1,61 @@
 
-import React, { useState, useEffect }  from 'react';
 import Main from './main'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import Welcome from './welcome';
+import React from 'react';
 
 
-function App() {
-
-  const[state, setState] = useState({data: {}});
+class App extends React.Component {
   
-  useEffect(()=>{
-    fetch('data.json').then(response => {
+
+  constructor(props) {
+    super(props);
+    this.state = {data: null};
+  }
+
+  componentDidMount() {
+    fetch('/courses/data.json').then(response => {
         response.json().then(data => {
-            setState({data: data});
+          console.log(data)
+            this.setState({data: data});
         })
-    })
-})
+    })            
+  }
 
-
-  return (
+  render(){
+    return (
     
-    
-    <div className="App" >
+      <div className="App" >
 
-      <Router>
-        <Routes>
-        <Route 
-            path={"/courses/"} 
-            exact 
-            element={<Welcome />}
-        />
-      {
-        
-        Object
-          .keys(state.data)
-          .map(route => (
-
-              <Route 
-                key={route}
-                path={"/courses/"+route} 
+        <Router>
+          <Routes>
+            <Route
+                path={"/courses/"} 
                 exact 
-                element={<Main data = {state.data[route]} />}
-              />
-            
-          ))
-      }
-        </Routes>
-      </Router>
+                element={<Welcome />}
+            />
+            {console.log(this.state.data)}
+            {
+              this.state.data !=null &&
+              Object
+                .keys(this.state.data)
+                .map(route => (
 
-    </div>
-  );
+                    <Route 
+                      key={route}
+                      path={"/courses/"+route} 
+                      exact 
+                      element={<Main data = {this.state.data[route]} />}
+                    />
+                  
+                ))
+            }
+             </Routes>
+        </Router>
+
+      </div>
+    )
+  };
 }
 
 export default App;
