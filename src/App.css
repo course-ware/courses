@@ -1,0 +1,108 @@
+html, body, #root, .App{
+    
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+body{
+  background: #3E1929;
+  background: #655D8A;
+  background: #495867;
+
+  -webkit-print-color-adjust: exact;
+}
+
+.abstract{
+  background-image: url(./images/abs.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.colorful{
+  background-image: url(./images/5183000.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.abstract-theme{
+  color: #FFF6EA !important;
+}
+
+.colorful-theme{
+  color: #655D8A !important;
+}
+
+
+
+
+.transparent{
+
+  background: rgba(255, 255, 255, 0.1) ;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+
+}
+
+
+
+header{
+    margin-left: 40px;
+    display: flex !important;
+}
+
+header > h1{
+  width: 70%;
+}
+
+.content{
+    
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.course{
+    
+    width: 0;
+    flex-basis:  40%;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 16px;
+
+    
+}
+
+
+button{
+  color: whitesmoke !important;
+}
+
+.course > ul {
+    margin-bottom: 30px;
+    color: floralwhite;
+}
+
+@media only screen and (max-width: 786px){
+
+  header{
+    flex-direction: column ;
+    margin-left: 0;
+    align-items: center;
+  }
+
+
+  .course{
+    flex-basis:  80%;
+  }
+
+  
+}
